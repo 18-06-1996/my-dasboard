@@ -1,25 +1,52 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {BaseApp}  from './Base/BaseApp';
+import { Buttons } from './components/Button';
+import { Cards } from './components/Cards';
+import { Dashboard } from './components/Dashboard';
+import { Route,Switch } from 'react-router-dom';
+import { Login } from './components/Login';
+import { Register } from './components/Register';
+import { Nopage } from './components/Nopage';
+import { Border } from './components/Border';
+import { Color } from './components/Color';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+     <Switch>
+      <Route exact path="/">
+        <Dashboard/>
+      </Route>
+      <Route path="/button">
+        <Buttons/>
+      </Route>
+      <Route path="/card">
+        <Cards/>
+      </Route>
+      <Route path="/login">
+      <Login/>
+      </Route>
+      <Route path="/register">
+      <Register/>
+      </Route>
+      
+      <Route path="/color">
+      <Color/>
+      </Route>
+      <Route path="/border">
+      <Border/>
+      </Route>
+      <Route path="**">
+      <Nopage/>
+      </Route>
+
+     </Switch>
+      
     </div>
   );
 }
+
 
 export default App;
